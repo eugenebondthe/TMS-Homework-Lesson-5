@@ -75,24 +75,24 @@ console.log(getSumNumbers(Number(userNum)));
 const a = Number(question("Input your first number:\n"));
 const b = Number(question("Input your second number:\n"));
 
-function getSum1(a:number, b:number):number {
-    let sum = 0;
-    if (a === b) {
-      return a;
-    } else if (a < b) {
-      for (let i = a; i <= b; i++) {
-        sum += i;
-      }
-      return sum;
-    } else {
-      for (let i = a; i >= b; i--) {
-        sum += i;
-      }
-      return sum;
+function getSum1(a: number, b: number): number {
+  let sum = 0;
+  if (a === b) {
+    return a;
+  } else if (a < b) {
+    for (let i = a; i <= b; i++) {
+      sum += i;
     }
+    return sum;
+  } else {
+    for (let i = a; i >= b; i--) {
+      sum += i;
+    }
+    return sum;
   }
+}
 
-  console.log(`Result:\n${getSum1(a, b)}`);
+console.log(`Result:\n${getSum1(a, b)}`);
 
 //task 6
 
@@ -126,14 +126,14 @@ fooboo(variant, foo, boo);
 const inputN = Number(question("Input number to count factorial:\n"));
 
 const result = (function (x: number): number {
-    let fact = 1;
-    for (let i = 1; i <= x; i++) {
-      fact *= i;
-    }
-    return fact;
-  })(inputN);
+  let fact = 1;
+  for (let i = 1; i <= x; i++) {
+    fact *= i;
+  }
+  return fact;
+})(inputN);
 
-  console.log(result);
+console.log(result);
 
 //advanced task 1
 
@@ -175,17 +175,25 @@ function getTaxed(sum: Function, taxRate: number): number {
 }
 
 function formatSum(sum: number): string {
-  return sum.toFixed(2) + "$"
+  return sum.toFixed(2) + "$";
 }
 
 function canBuy(taxed: number, balance: number): boolean {
   if (taxed < balance) {
-    console.log(`Your balance is ${balance}. You can afford ${formatSum(getTaxed(sumPrice, taxRate))} purchase`);
+    console.log(
+      `Your balance is ${balance}. You can afford ${formatSum(
+        getTaxed(sumPrice, taxRate)
+      )} purchase`
+    );
     return true;
   } else {
-    console.log(`Your balance is ${balance}. You can't afford ${formatSum(getTaxed(sumPrice, taxRate))} purchase`);
+    console.log(
+      `Your balance is ${balance}. You can't afford ${formatSum(
+        getTaxed(sumPrice, taxRate)
+      )} purchase`
+    );
     return false;
   }
 }
 
-canBuy(getTaxed(sumPrice, taxRate), balance)
+canBuy(getTaxed(sumPrice, taxRate), balance);
